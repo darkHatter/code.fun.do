@@ -1,4 +1,5 @@
 from django.contrib import messages
+from datetime import *
 from django.contrib.auth.mixins import(
     LoginRequiredMixin,
     PermissionRequiredMixin
@@ -6,11 +7,11 @@ from django.contrib.auth.mixins import(
 
 from django.core.urlresolvers import reverse
 from django.db import IntegrityError
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404,render,HttpResponse
 from django.views import generic
-from groups.models import Group,GroupMember
+from groups.models import Group,GroupMember,Events
 from . import models
-
+from groups.forms import *
 class CreateGroup(LoginRequiredMixin, generic.CreateView):
     fields = ("name", "description")
     model = Group
@@ -68,3 +69,23 @@ class LeaveGroup(LoginRequiredMixin, generic.RedirectView):
                 "You have successfully left this group."
             )
         return super().get(request, *args, **kwargs)
+
+def addEvent(request):
+    if request.method == 'POST':
+        form = EventsForm(data=request.POST)
+        if form.is_valid:
+            event = form.save()
+            event.save()
+            return render(request,"test.html")
+        else:
+            print(form.errors)
+    else:
+        form = EventsForm()
+        return render(request,"addEvent.html",{'form':form})
+
+def showEvents(request):
+    now = datetime.now()
+    start = now
+    end = now + timedelta(days=4)
+    events = Events.objects.filter(end_date__range=(start.date(),end.date()))
+    return render(request,"showEvents.html",{'events':events})

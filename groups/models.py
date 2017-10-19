@@ -48,3 +48,8 @@ class GroupMember(models.Model):
 
     class Meta:
         unique_together = ("group", "user")
+class Events(models.Model):
+    EventType = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    start_date = models.DateField()
+    end_date = models.DateField()

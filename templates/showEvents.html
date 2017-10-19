@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="cointainer">
+  {% for i in events %}
+
+    <p>{{i.EventType}}</p>
+    <p>{{i.description}}</p>
+    <p>{{i.start_date}}</p>
+    <p>{{i.end_date}}</p>
+
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+<div class="text-info">
+  <table class="table table-sm table-inverse">
+    {{ form.as_table }}
+
+  </table>
+  <input class="btn btn-primary" type="submit" value="Add Event">
+</div>
+</form>
+{% endblock %}
