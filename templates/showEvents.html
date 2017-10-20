@@ -1,18 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="cointainer">
+<div class="container" >
   {% for i in events %}
+    <div class="card border-rounded text-black  mb-3" style="max-width: auto;">
+      <div class="card-title bg-white text-dark"><h3>Event Type : {{i.EventType}}</h3></div>
+      <hr>
+      <div class="card-body text-muted">
+        <p class = "card-text "><h5>Description : {{i.description}}</h5></p>
+        <p class = "card-text "><h5>Start - date : {{i.date}}</h5></p>
+        <p class = "card-text"><h5>End - date : {{i.time}}</h5></p>
 
-    <p>{{i.EventType}}</p>
-    <p>{{i.description}}</p>
-    <p>{{i.start_date}}</p>
-    <p>{{i.end_date}}</p>
+      </div>
+    </div>
 
   {% endfor %}
 
 </div>
-
-
 
 {% endblock %}

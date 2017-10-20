@@ -1,14 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-  <h1>Dashboard</h1>
-  <h2><a href="{% url 'groups:all'%}">Go to Groups</a></h2></br>
-    <a class="btn btn-primary" href="{% url 'groups:addEvent'%}" role="button">Add Event</a></br></br>
-    <a class="btn btn-primary" href="{% url 'groups:showEvents'%}" role="button">Show Events</a>
+<style>
+.right {
+  position: absolute;
+  right: 0px;
+  width: 450px;
+  height:600px;
+  padding: 10px;
+}
+img{
+width:400px;
+height:270px;
+}
 
+li{
+  padding-bottom: 40px;
+}
+#jumbo{
+  padding-left: 30px;
+}
+</style>
+</div class="container">
+      <iframe src='https://webchat.botframework.com/embed/eventPlanner1?s=yBY2D4Ms5Pw.cwA.-mg.-5DfIetkxtl_s4g7v6_2VTgkuA1jKeLAzEZmQQkcaO4' class='right'></iframe>
+
+      <div class="jumbotron" id="jumbo">
+        <h1><bold>Dashboard</bold></h1>
+        <br>
+        <h2><underline>Groups</underline></h2>
+        <a href="{% url 'posts:create' %}"><h3>Create Posts</h3></a>
+        <a href="  {% url 'groups:all' %}"><h3>Show Groups</h3></a>
+        <a href="  {% url 'groups:create' %}"><h3>Create Groups</h3></a>
+
+        <br>
+
+        <h2><underline>My Events</underline></h2>
+        <a href="{% url 'groups:addEvent'%}"><h3>Add Events</h3></a>
+        <a href="{% url 'groups:showEvents'%}"><h3>Show Events</h3></a>
+
+      </div>
 </div>
-
-
 
 
 {% endblock %}

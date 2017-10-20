@@ -4,8 +4,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.http import Http404
 from django.views import generic
+from django.shortcuts import render,HttpResponse,redirect,HttpResponseRedirect
 from braces.views import SelectRelatedMixin
-
+from posts.models import *
+from groups.models import *
+from groups import views
 from . import forms
 from . import models
 
@@ -80,3 +83,25 @@ class DeletePost(LoginRequiredMixin, SelectRelatedMixin, generic.DeleteView):
     def delete(self, *args, **kwargs):
         messages.success(self.request, "Post Deleted")
         return super().delete(*args, **kwargs)
+
+def changeUpCount(request):
+    if request.method == 'GET':
+
+        post =  request.GET.get('param1')
+        temp = Post.objects.get(message__iexact=post)
+        temp.upvoteCount = temp.upvoteCount + 1;
+        group = temp.group
+        temp.save()
+        temp1 = Group.objects.get(name__iexact=group)
+        return HttpResponseRedirect(reverse('groups:single', args=(temp1.slug,)))
+
+def changeDownCount(request):
+    if request.method == 'GET':
+
+        post =  request.GET.get('param1')
+        temp = Post.objects.get(message__iexact=post)
+        temp.downvoteCount = temp.downvoteCount - 1;
+        group = temp.group
+        temp.save()
+        temp1 = Group.objects.get(name__iexact=group)
+        return HttpResponseRedirect(reverse('groups:single', args=(temp1.slug,)))

@@ -7,3 +7,4 @@ class EventsForm(forms.ModelForm):
     class Meta():
         model = Events
         fields = '__all__'
+        date = forms.DateField(widget = forms.DateTimeInput())

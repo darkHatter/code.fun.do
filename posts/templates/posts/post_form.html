@@ -3,10 +3,27 @@
 {% load bootstrap3 %}
 
 {% block post_content %}
-<h4>Create New Post</h4>
-<form method="POST" action="{% url 'posts:create' %}" id="postForm">
-	{% csrf_token %}
-	{% bootstrap_form form %}
-	<input type="submit" value="Post" class="btn btn-primary btn-large">
-</form>
+<style>
+.right {
+  position: absolute;
+  right: 0px;
+  width: 450px;
+  height:600px;
+  padding: 10px;
+  background-color: white;
+}
+#post{
+	margin-left: 20px;
+	width:720px;
+}
+</style>
+<iframe src='https://webchat.botframework.com/embed/eventPlanner1?s=yBY2D4Ms5Pw.cwA.-mg.-5DfIetkxtl_s4g7v6_2VTgkuA1jKeLAzEZmQQkcaO4' class='right'></iframe>
+<div class="container" id = "post">
+	<h1>Create New Post</h1>
+	<form method="POST" action="{% url 'posts:create' %}" id="postForm">
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		<input type="submit" value="Post" class="btn btn-primary btn-large">
+	</form>
+</div>
 {% endblock %}

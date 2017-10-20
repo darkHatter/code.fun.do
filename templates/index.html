@@ -1,9 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+<style>
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-    <h1>Welcome to Star Social!</h1>
-    <h2>The best community for all things on outer space!</h2>
-    <h2>Login or Sign-up for free to get started!</h2>
+h1, h2{
+    text-align: center;
+    color: black;
+    font-size: 60px;
+    font-family: 'Anton', sans-serif;
+}
 
 
+#Head{
+  padding-top: 100px;
+  font-size: 70px;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("https://d.wildapricot.net/images/newsblog/event-management.jpg?v=0");
+
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}</style>
+<div class="bg">
+  <h1 id = "Head" class = "serif">Welcome to Event Planner!</h1>
+  <h2>Share Events among friends instantaneously!</h2>
+  <h2>Sign up now to get started!</h2>
+</div>
 {% endblock %}

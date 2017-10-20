@@ -16,7 +16,8 @@ class Post(models.Model):
     message = models.TextField()
     message_html = models.TextField(editable=False)
     group = models.ForeignKey(Group, related_name="posts",null=True, blank=True)
-
+    upvoteCount = models.IntegerField(default = 0)
+    downvoteCount = models.IntegerField(default = 0)
     def __str__(self):
         return self.message
 

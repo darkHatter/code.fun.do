@@ -51,5 +51,5 @@ class GroupMember(models.Model):
 class Events(models.Model):
     EventType = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    date = models.DateField()
+    time = models.TimeField()

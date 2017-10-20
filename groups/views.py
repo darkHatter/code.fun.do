@@ -87,5 +87,5 @@ def showEvents(request):
     now = datetime.now()
     start = now
     end = now + timedelta(days=4)
-    events = Events.objects.filter(end_date__range=(start.date(),end.date()))
+    events = Events.objects.filter(date__range=(start.date(),end.date()))
     return render(request,"showEvents.html",{'events':events})

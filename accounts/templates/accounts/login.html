@@ -2,7 +2,12 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="container">
+<style>
+   #login{
+      max-width: 700px;
+   }
+ </style>
+<div class="container" id="login">
     <h1>Login</h1>
     <form method="POST">
         {% csrf_token %}

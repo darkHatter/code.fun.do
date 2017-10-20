@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+.right {
+  position: absolute;
+  right: 0px;
+  width: 450px;
+  height:600px;
+  padding: 10px;
+  background-color: white;
+}
+</style>
+<iframe src='https://webchat.botframework.com/embed/eventPlanner1?s=yBY2D4Ms5Pw.cwA.-mg.-5DfIetkxtl_s4g7v6_2VTgkuA1jKeLAzEZmQQkcaO4' class='right'></iframe>
+
 <form enctype="multipart/form-data" method="post">
   {% csrf_token %}
 <div class="text-info">
